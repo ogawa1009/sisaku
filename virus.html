@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ウイルス感染</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .virus-container {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: red;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6; /* 行の高さ */
+      color: #333; /* テキストの色 */
+      margin-bottom: 15px; /* パラグラフの下の余白 */
+    }
+
+    #countdown {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    /* テキストを点滅させるアニメーション */
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .blink {
+      animation: blink 1s infinite; /* 点滅するアニメーションを適用 */
+    }
+
+    /* 画像のスタイル */
+    #virus-image {
+      max-width: 100%;
+      height: auto;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="virus-container">
+    <h1>ウイルス感染しました！</h1>
+    <p>すぐにウイルス対策をする必要があります。</p>
+    <p>支払いを済ませるとウイルス駆除が開始されます</p>
+    <h1 class="blink">今すぐお支払いください！！</h1> <!-- blink クラスを適用 -->
+    <div id="countdown"></div>
+    <img id="virus-image" src="/Users/shokupanman/Downloads/429391931_977942827036102_42307813852709598_n.jpg" alt="ウイルスのイメージ">
+    <audio id="virus-sound" autoplay loop>
+        <source src="https://d.kuku.lu/nv76ew55e" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      
+      <script>
+    // カウントダウンを開始する関数
+    function startCountdown(duration, display) {
+      let timer = duration, minutes, seconds;
+      setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+          timer = duration;
+        }
+      }, 1000);
+    }
+
+    // ページが読み込まれた時にカウントダウンを開始
+    window.onload = function () {
+      const countdownDisplay = document.getElementById("countdown");
+      const duration = 30 * 60; // 30分の秒数
+
+      startCountdown(duration, countdownDisplay);
+    };
+  </script>
+</body>
+</html>
