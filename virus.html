@@ -55,6 +55,11 @@
       height: auto;
       margin-top: 20px;
     }
+
+    /* テキストの改行を抑制 */
+    .virus-container * {
+      white-space: nowrap;
+    }
   </style>
 </head>
 <body>
@@ -67,32 +72,33 @@
     <img id="virus-image" src="https://github.com/ogawa1009/sisaku/blob/main/429391931_977942827036102_42307813852709598_n.jpg?raw=true">   
      
       
-      <script>
-    // カウントダウンを開始する関数
-    function startCountdown(duration, display) {
-      let timer = duration, minutes, seconds;
-      setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
+    <script>
+      // カウントダウンを開始する関数
+      function startCountdown(duration, display) {
+        let timer = duration, minutes, seconds;
+        setInterval(function () {
+          minutes = parseInt(timer / 60, 10);
+          seconds = parseInt(timer % 60, 10);
 
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
+          minutes = minutes < 10 ? "0" + minutes : minutes;
+          seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        display.textContent = minutes + ":" + seconds;
+          display.textContent = minutes + ":" + seconds;
 
-        if (--timer < 0) {
-          timer = duration;
-        }
-      }, 1000);
-    }
+          if (--timer < 0) {
+            timer = duration;
+          }
+        }, 1000);
+      }
 
-    // ページが読み込まれた時にカウントダウンを開始
-    window.onload = function () {
-      const countdownDisplay = document.getElementById("countdown");
-      const duration = 30 * 60; // 30分の秒数
+      // ページが読み込まれた時にカウントダウンを開始
+      window.onload = function () {
+        const countdownDisplay = document.getElementById("countdown");
+        const duration = 30 * 60; // 30分の秒数
 
-      startCountdown(duration, countdownDisplay);
-    };
-  </script>
+        startCountdown(duration, countdownDisplay);
+      };
+    </script>
+  </div>
 </body>
 </html>
